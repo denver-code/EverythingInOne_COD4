@@ -1,0 +1,59 @@
+#include "ui/menudef.h"
+#include "ui_mp/common_macro.inc"
+#define OPTIONS_STYLE			1
+#include "ui_mp/menustyle.inc"
+#include "ui/choices_setup_common.menu"
+
+#undef	CHOICE_SIZE_X
+#define CHOICE_SIZE_X		220
+
+
+
+{
+	menuDef 
+	{
+		name options_graphics_defaults
+		fullScreen 0				
+		rect 0 0 640 480				// Size and position of the menu
+		focusColor COLOR_FOCUSED			// Menu focus color for text and items
+		soundloop ""
+		onOpen
+		{
+			setLocalVarBool ui_hideBack 1;
+		}
+		onClose
+		{
+			setLocalVarBool ui_hideBack 0;
+		}
+		onESC 
+		{ 
+			close options_graphics_defaults;		
+		}
+
+		#include "ui_mp/leftside_options.inc"
+		
+		CHOICE_SECTION_TITLE( 21, "^3Personal Bests" )
+		CHOICE_DVAREDIT_VIS( 22, "^2F.N.G.", fng_string, 15, 15, ;, 1 )
+		CHOICE_DVAREDIT_VIS( 23, "^2Crew Expendable", crewexp_string, 15, 15, ;, 1 )		
+		CHOICE_DVAREDIT_VIS( 24, "^2Blackout", blackout_string, 15, 15, ;, 1 )
+		CHOICE_DVAREDIT_VIS( 25, "^2CDS", cds_string, 15, 15, ;, 1 )		
+		CHOICE_DVAREDIT_VIS( 26, "^2The Bog", bog_string, 15, 15, ;, 1 )	
+		CHOICE_DVAREDIT_VIS( 27, "^2Hunted", hunted_string, 15, 15, ;, 1 )	
+		CHOICE_DVAREDIT_VIS( 28, "^2DFA", dfa_string, 15, 15, ;, 1 )
+		CHOICE_DVAREDIT_VIS( 29, "^2War Pig", wp_string, 15, 15, ;, 1 )
+		CHOICE_DVAREDIT_VIS( 30, "^2Shock And Awe", saa_string, 15, 15, ;, 1 )
+		CHOICE_DVAREDIT_VIS( 31, "^2Aftermath", afterm_string, 15, 15, ;, 1 )
+		CHOICE_DVAREDIT_VIS( 32, "^3Safehouse", safeh_string, 15, 15, ;, 1 )
+		CHOICE_DVAREDIT_VIS( 33, "^3All Ghillied Up", agu_string, 15, 15, ;, 1 )
+		CHOICE_DVAREDIT_VIS( 34, "^3OSOK", osok_string, 15, 15, ;, 1 )
+		CHOICE_DVAREDIT_VIS( 35, "^3Heat", heat_string, 15, 15, ;, 1 )
+		CHOICE_DVAREDIT_VIS( 36, "^3TSOTF", sins_string, 15, 15, ;, 1 )
+		CHOICE_DVAREDIT_VIS( 37, "^1Ultimatum", ulti_string, 15, 15, ;, 1 )
+		CHOICE_DVAREDIT_VIS( 38, "^1All In", allin_string, 15, 15, ;, 1 )
+		CHOICE_DVAREDIT_VIS( 39, "^1NFITWR", nfitwr_string, 15, 15, ;, 1 )
+		CHOICE_DVAREDIT_VIS( 40, "^1Game Over", gameover_string, 15, 15, ;, 1 )
+		
+		CHOICE_SECTION_TITLE( 41, "^6Sum of PBs" )
+		CHOICE_DVAREDIT_VIS( 42, "Sum of PBs", goldstotal_string, 15, 15, ;, 1 )
+	}
+}
